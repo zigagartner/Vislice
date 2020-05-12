@@ -1,6 +1,5 @@
 # Vislice
 
-Ivan Vidav
-Josip Plemelj  
-Jurij Vega
-Anton Suhadolc
+Projekt pri predmetu UVP.
+
+Napisali bomo program, ki nas bo vodil skozi preprosto igro vislic.
