@@ -15,10 +15,10 @@ class Igra:
         self.crke = [] if crke is None else [crka.upper() for crka in crke]
     
     def napacne_crke(self):
-        return [crka for crka in self.crke if crka not in self.geslo()]
+        return [crka for crka in self.crke if crka not in self.geslo]
 
     def pravilne_crke(self):
-        return [crka for crka in self.crke if crka in self.geslo()]
+        return [crka for crka in self.crke if crka in self.geslo]
    
     def stevilo_napak(self):
         return len(self.napacne_crke())
@@ -31,8 +31,8 @@ class Igra:
 
     def pravilni_del_gesla(self):
         s = ''
-        for crka in self.geslo():
-            if crka in self.crke():
+        for crka in self.geslo:
+            if crka in self.crke:
                 s += crka
             else:
                 s += '_'
@@ -43,11 +43,11 @@ class Igra:
 
     def ugibaj(self, ugibana_crka):
         ugibana_crka = ugibana_crka.upper()
-        if ugibana_crka in self.crke():
+        if ugibana_crka in self.crke:
             return PONOVLJENA_CRKA
         else:
             self.crke.append(ugibana_crka)
-            if ugibana_crka in self.geslo():
+            if ugibana_crka in self.geslo:
                 if self.zmaga():
                     return ZMAGA
                 else:
