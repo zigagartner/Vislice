@@ -4,20 +4,20 @@ import model
 def izpis_igre(igra):
     return (
         f'Pravilni del gesla: {igra.pravilni_del_gesla()}\n' +
-        f'Neuspeli poskusi: {igra.nepravilni_ugibi()}\n' +
+        f'Neuspeli poskusi: {igra.nepravilni_ugibi()}\n' + 
         f'Število preostalih poskusov:{model.STEVILO_DOVOLJENIH_NAPAK - igra.stevilo_napak()}\n'
     )
 
 def izpis_zmage(igra):
     return(
         'Čestitam, uganil si geslo\n' +
-        f'Uspelo ti je v {len(igra.crke())} poskusih\n'
+        f'Uspelo ti je v {len(igra.crke)} poskusih\n'
     )
 
 def izpis_poraza(igra):
     return (
         'Porabil si vse poskuse\n' +
-        f'Geslo je {igra.geslo()}\n'
+        f'Geslo je {igra.geslo}\n'
     )
 
 def zahtevaj_vnos():
