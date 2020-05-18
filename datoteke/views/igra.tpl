@@ -14,9 +14,9 @@
 
     <h2>Napačnih ugibov: {{igra.nepravilni_ugibi()}}</h2>
 
-    % if poskus == "Z":
+    % if poskus == "W":
       <h1> ZMAGAL SI! </h1>
-    % elif == poskus == "X"
+    % elif poskus == "X":
       <h1> IZGUBIL SI! </h1>
     % else:
 
