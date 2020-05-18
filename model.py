@@ -2,9 +2,12 @@ import random
 
 STEVILO_DOVOLJENIH_NAPAK = 10
 
+ZACETEK = 'Z'
+
 PRAVILNA_CRKA = '+'
 PONOVLJENA_CRKA = 'o'
 NAPACNA_CRKA = '-'
+
 
 ZMAGA = 'W'
 PORAZ = 'X'
@@ -66,5 +69,34 @@ for beseda in open('besede.txt', encoding='utf-8'):
 def nova_igra():
     beseda = random.choice(bazen_besed)
     return Igra(beseda)
+
+
+class Vislice:
+    def __init__(self):
+        #Slovar, ki ID-ju priredi igro.
+        self.igre = {}    # Int -> (Igra, stanje)
+        
+    def prost_id_igre(self):
+        if len(self.igre) == 0:
+            return 0
+        else:
+            return max(self.igre.keys()) + 1
+
+    def nova_igra(self):
+        # dobimo svež ID, naredimo novo igro, vse to shranimo v self.igre
+        nov_id = self.prost_id_igre()
+        sveza_igra = nova_igra()
+        self.igre[nov_id] = sveza_igra, ZACETEK
+        #Vrnemo nov ID.
+        return nov_id
+
+    def ugibaj(self, id_igre, crka):
+        #Dobimo staro igro ven
+        trenutna_igra, _ = self.igre[id_igre]
+        #Ugibamo_crko
+        novo_stanje = trenutna_igra.ugibaj(crka)
+        #Zapišemo posodobljeno stanje in igro nazaj v "BAZO"
+        self.igre[id_igre] = (trenutna_igra, novo_stanje)
+
 
 
